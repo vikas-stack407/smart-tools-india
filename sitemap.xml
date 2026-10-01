@@ -2,9 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://vikas-stack407.github.io/</loc>
+        <loc>https://vikas-stack407.github.io/smart-tools-india/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://vikas-stack407.github.io/smart-tools-india/about.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://vikas-stack407.github.io/smart-tools-india/contact.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://vikas-stack407.github.io/smart-tools-india/privacy.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
 
 </urlset>
