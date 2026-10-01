@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vikas-stack407.github.io/sitemap.xml
+Sitemap: https://vikas-stack407.github.io/smart-tools-india/sitemap.xml
