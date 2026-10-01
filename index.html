@@ -1,832 +1,270 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Smart Tools India | Free Online Tools</title>
-<meta name="description" content="Free online calculator, GST, EMI, percentage, age and unit converter tools.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+    <title>Smart Tools India - Free Online Tools</title>
 
-body{
-    background:#f4f7fb;
-    color:#172033;
-}
+    <meta name="description"
+          content="Smart Tools India provides free online tools that are simple, fast and easy to use. Explore useful tools for everyday needs.">
 
-header{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    color:white;
-    padding:25px 15px;
-    text-align:center;
-}
+    <meta name="keywords"
+          content="Smart Tools India, online tools, free online tools, useful tools, India tools, calculator, text tools">
 
-header h1{
-    font-size:29px;
-}
+    <meta name="author" content="Smart Tools India">
 
-header p{
-    margin-top:7px;
-}
+    <meta name="robots" content="index, follow">
 
-.container{
-    max-width:950px;
-    margin:auto;
-    padding:18px 14px;
-}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Smart Tools India - Free Online Tools">
+    <meta property="og:description"
+          content="Explore free, simple and useful online tools at Smart Tools India.">
+    <meta property="og:type" content="website">
+    <meta property="og:url"
+          content="https://vikas-stack407.github.io/smart-tools-india/">
 
-.hero{
-    background:white;
-    border-radius:18px;
-    padding:22px;
-    text-align:center;
-    margin-bottom:18px;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-}
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb">
 
-.hero h2{
-    margin-bottom:8px;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-.hero p{
-    color:#64748b;
-}
+        body {
+            background: #f5f7fa;
+            color: #222;
+            min-height: 100vh;
+        }
 
-.search{
-    width:100%;
-    padding:14px;
-    border:1px solid #dbe1ea;
-    border-radius:12px;
-    font-size:16px;
-    margin-bottom:18px;
-    outline:none;
-}
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+        }
 
-.tools{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
-}
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
 
-.tool-card{
-    background:white;
-    padding:19px 10px;
-    text-align:center;
-    border-radius:15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
-    cursor:pointer;
-    transition:.2s;
-}
+        header p {
+            font-size: 16px;
+        }
 
-.tool-card:active{
-    transform:scale(.97);
-}
+        nav {
+            background: white;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
 
-.icon{
-    font-size:32px;
-}
+        nav a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
 
-.tool-card h3{
-    font-size:16px;
-    margin-top:8px;
-}
+        nav a:hover {
+            background: #eaf1ff;
+        }
 
-.tool{
-    display:none;
-    background:white;
-    padding:20px;
-    margin-top:18px;
-    border-radius:16px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px 15px;
+        }
 
-.tool h2{
-    margin-bottom:15px;
-}
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-input,select{
-    width:100%;
-    padding:13px;
-    margin:7px 0;
-    border:1px solid #d7dde7;
-    border-radius:10px;
-    font-size:16px;
-}
+        .intro h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
 
-button{
-    width:100%;
-    padding:13px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:white;
-    font-size:16px;
-    margin-top:9px;
-    cursor:pointer;
-}
+        .intro p {
+            color: #555;
+            line-height: 1.6;
+        }
 
-.back{
-    background:#64748b;
-}
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
 
-.clear{
-    background:#ef4444;
-}
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.result{
-    margin-top:15px;
-    padding:15px;
-    border-radius:11px;
-    background:#eff6ff;
-    line-height:1.7;
-    font-weight:bold;
-}
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
 
-.ad-box{
-    min-height:90px;
-    border:1px dashed #aab2c0;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#777;
-    margin:18px 0;
-    background:white;
-}
+        .tool-card .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
 
-.info{
-    margin-top:20px;
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    line-height:1.7;
-}
+        .tool-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
 
-footer{
-    margin-top:25px;
-    background:#111827;
-    color:#d1d5db;
-    text-align:center;
-    padding:25px 15px;
-    line-height:1.8;
-}
+        .tool-card p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 14px;
+        }
 
-@media(min-width:700px){
-    .tools{
-        grid-template-columns:repeat(4,1fr);
-    }
-}
-</style>
+        .coming {
+            display: inline-block;
+            margin-top: 15px;
+            background: #2563eb;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            .intro h2 {
+                font-size: 22px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<nav style="background:white;padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);">
-<a href="index.html" style="margin:8px;color:#2563eb;text-decoration:none;font-weight:bold;">Home</a>
-<a href="about.html" style="margin:8px;color:#2563eb;text-decoration:none;font-weight:bold;">About</a>
-<a href="contact.html" style="margin:8px;color:#2563eb;text-decoration:none;font-weight:bold;">Contact</a>
-<a href="privacy.html" style="margin:8px;color:#2563eb;text-decoration:none;font-weight:bold;">Privacy</a>
-</nav>
-<header>
-    <h1>🛠️ Smart Tools India</h1>
-    <p>Free Online Calculators & Useful Tools</p>
-</header>
 
-<div class="container">
+    <header>
+        <h1>🛠️ Smart Tools India</h1>
+        <p>Free, Simple & Useful Online Tools</p>
+    </header>
 
-    <div class="hero">
-        <h2>आपका Smart Online Tools Hub 🚀</h2>
-        <p>जरूरी calculations और conversions आसानी से करें।</p>
-    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+    </nav>
 
-    <input
-        id="search"
-        class="search"
-        type="text"
-        placeholder="🔎 Tool खोजें..."
-        oninput="searchTools()"
-    >
+    <main>
 
-    <div class="ad-box">
-        Advertisement
-    </div>
+        <section class="intro">
+            <h2>Free Online Tools</h2>
+            <p>
+                Welcome to Smart Tools India. Explore simple and useful
+                online tools designed to make everyday tasks easier.
+            </p>
+        </section>
 
-    <div class="tools" id="toolList">
+        <section class="tools">
 
-        <div class="tool-card" data-name="calculator कैलकुलेटर" onclick="openTool('calculator')">
-            <div class="icon">🧮</div>
-            <h3>Calculator</h3>
+            <div class="tool-card">
+                <div class="icon">🧮</div>
+                <h3>Calculator</h3>
+                <p>
+                    Perform basic calculations quickly and easily.
+                </p>
+                <span class="coming">Coming Soon</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">🔤</div>
+                <h3>Text Tools</h3>
+                <p>
+                    Useful tools for working with and managing text.
+                </p>
+                <span class="coming">Coming Soon</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">🔢</div>
+                <h3>Number Tools</h3>
+                <p>
+                    Simple tools for different number-related tasks.
+                </p>
+                <span class="coming">Coming Soon</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon">📅</div>
+                <h3>Date & Time Tools</h3>
+                <p>
+                    Helpful tools for dates, time and everyday calculations.
+                </p>
+                <span class="coming">Coming Soon</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Smart Tools India. All Rights Reserved.</p>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
         </div>
-
-        <div class="tool-card" data-name="percentage प्रतिशत" onclick="openTool('percentage')">
-            <div class="icon">📊</div>
-            <h3>Percentage</h3>
-        </div>
-
-        <div class="tool-card" data-name="age उम्र" onclick="openTool('age')">
-            <div class="icon">🎂</div>
-            <h3>Age Calculator</h3>
-        </div>
-
-        <div class="tool-card" data-name="emi loan लोन" onclick="openTool('emi')">
-            <div class="icon">💰</div>
-            <h3>EMI Calculator</h3>
-        </div>
-
-        <div class="tool-card" data-name="gst tax जीएसटी" onclick="openTool('gst')">
-            <div class="icon">🧾</div>
-            <h3>GST Calculator</h3>
-        </div>
-
-        <div class="tool-card" data-name="unit converter इकाई" onclick="openTool('unit')">
-            <div class="icon">📏</div>
-            <h3>Unit Converter</h3>
-        </div>
-
-        <div class="tool-card" data-name="date difference तारीख" onclick="openTool('date')">
-            <div class="icon">📅</div>
-            <h3>Date Difference</h3>
-        </div>
-
-        <div class="tool-card" data-name="discount छूट" onclick="openTool('discount')">
-            <div class="icon">🏷️</div>
-            <h3>Discount Calculator</h3>
-        </div>
-
-    </div>
-
-
-    <!-- Calculator -->
-
-    <div class="tool" id="calculator">
-
-        <h2>🧮 Calculator</h2>
-
-        <input id="calcDisplay" type="text" placeholder="जैसे 25 + 10 × 2">
-
-        <button onclick="calculateBasic()">Calculate</button>
-        <button class="clear" onclick="clearCalc()">Clear</button>
-
-        <div class="result" id="calcResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- Percentage -->
-
-    <div class="tool" id="percentage">
-
-        <h2>📊 Percentage Calculator</h2>
-
-        <input id="percentTotal" type="number" placeholder="कुल संख्या">
-        <input id="percentObtained" type="number" placeholder="प्राप्त संख्या">
-
-        <button onclick="calculatePercentage()">Calculate</button>
-
-        <div class="result" id="percentResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- Age -->
-
-    <div class="tool" id="age">
-
-        <h2>🎂 Age Calculator</h2>
-
-        <input id="birthDate" type="date">
-
-        <button onclick="calculateAge()">Calculate Age</button>
-
-        <div class="result" id="ageResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- EMI -->
-
-    <div class="tool" id="emi">
-
-        <h2>💰 EMI Calculator</h2>
-
-        <input id="loan" type="number" placeholder="Loan Amount ₹">
-
-        <input id="rate" type="number" step="0.01"
-        placeholder="Interest Rate % प्रति वर्ष">
-
-        <input id="months" type="number"
-        placeholder="Loan अवधि (महीने)">
-
-        <button onclick="calculateEMI()">Calculate EMI</button>
-
-        <div class="result" id="emiResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- GST -->
-
-    <div class="tool" id="gst">
-
-        <h2>🧾 GST Calculator</h2>
-
-        <input id="gstAmount" type="number" placeholder="Amount ₹">
-
-        <select id="gstRate">
-            <option value="5">GST 5%</option>
-            <option value="12">GST 12%</option>
-            <option value="18" selected>GST 18%</option>
-            <option value="28">GST 28%</option>
-        </select>
-
-        <button onclick="calculateGST()">Calculate GST</button>
-
-        <div class="result" id="gstResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- Unit -->
-
-    <div class="tool" id="unit">
-
-        <h2>📏 Unit Converter</h2>
-
-        <input id="km" type="number" placeholder="Kilometer">
-
-        <button onclick="convertKm()">Convert</button>
-
-        <div class="result" id="unitResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- Date -->
-
-    <div class="tool" id="date">
-
-        <h2>📅 Date Difference</h2>
-
-        <label>पहली तारीख</label>
-        <input id="date1" type="date">
-
-        <label>दूसरी तारीख</label>
-        <input id="date2" type="date">
-
-        <button onclick="calculateDateDifference()">Calculate</button>
-
-        <div class="result" id="dateResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <!-- Discount -->
-
-    <div class="tool" id="discount">
-
-        <h2>🏷️ Discount Calculator</h2>
-
-        <input id="price" type="number" placeholder="Original Price ₹">
-
-        <input id="discountRate" type="number"
-        placeholder="Discount %">
-
-        <button onclick="calculateDiscount()">Calculate</button>
-
-        <div class="result" id="discountResult"></div>
-
-        <button class="back" onclick="closeTools()">← वापस</button>
-
-    </div>
-
-
-    <div class="ad-box">
-        Advertisement
-    </div>
-
-
-    <div class="info">
-
-        <h2>ℹ️ Smart Tools India</h2>
-
-        <p>
-            Smart Tools India एक free online tools website है
-            जहाँ आप रोजमर्रा के calculations और conversions
-            आसानी से कर सकते हैं।
-        </p>
-
-        <br>
-
-        <p>
-            यह वेबसाइट mobile और computer दोनों पर इस्तेमाल
-            करने के लिए बनाई गई है।
-        </p>
-
-    </div>
-
-</div>
-
-
-<footer>
-
-    <strong>🛠️ Smart Tools India</strong>
-
-    <br>
-
-    © 2026 Smart Tools India
-
-    <br>
-
-    Free Online Tools
-
-</footer>
-
-
-<script>
-
-/* Open Tool */
-
-function openTool(id){
-
-    document.querySelectorAll(".tool").forEach(function(tool){
-        tool.style.display="none";
-    });
-
-    document.getElementById("toolList").style.display="none";
-    document.getElementById("search").style.display="none";
-
-    document.getElementById(id).style.display="block";
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* Close */
-
-function closeTools(){
-
-    document.querySelectorAll(".tool").forEach(function(tool){
-        tool.style.display="none";
-    });
-
-    document.getElementById("toolList").style.display="grid";
-    document.getElementById("search").style.display="block";
-}
-
-
-/* Search */
-
-function searchTools(){
-
-    let value =
-    document.getElementById("search").value.toLowerCase();
-
-    document.querySelectorAll(".tool-card").forEach(function(card){
-
-        let name =
-        card.getAttribute("data-name").toLowerCase();
-
-        card.style.display =
-        name.includes(value) ? "block" : "none";
-
-    });
-}
-
-
-/* Basic Calculator */
-
-function calculateBasic(){
-
-    let expression =
-    document.getElementById("calcDisplay").value;
-
-    if(!expression){
-        document.getElementById("calcResult").innerText =
-        "कृपया calculation लिखें।";
-        return;
-    }
-
-    /*
-      केवल सामान्य गणित के characters स्वीकार किए जाते हैं।
-    */
-
-    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
-
-        document.getElementById("calcResult").innerText =
-        "कृपया केवल numbers और + - × / % का उपयोग करें।";
-
-        return;
-    }
-
-    try{
-
-        expression = expression.replace(/×/g,"*");
-
-        let result = Function(
-            '"use strict"; return (' + expression + ')'
-        )();
-
-        document.getElementById("calcResult").innerText =
-        "उत्तर: " + result;
-
-    }catch{
-
-        document.getElementById("calcResult").innerText =
-        "Calculation सही नहीं है।";
-
-    }
-}
-
-
-function clearCalc(){
-
-    document.getElementById("calcDisplay").value="";
-    document.getElementById("calcResult").innerText="";
-}
-
-
-/* Percentage */
-
-function calculatePercentage(){
-
-    let total =
-    Number(document.getElementById("percentTotal").value);
-
-    let obtained =
-    Number(document.getElementById("percentObtained").value);
-
-    if(total <= 0 || obtained < 0){
-
-        document.getElementById("percentResult").innerText =
-        "कृपया सही संख्या डालें।";
-
-        return;
-    }
-
-    let result =
-    (obtained / total) * 100;
-
-    document.getElementById("percentResult").innerText =
-    "Percentage: " + result.toFixed(2) + "%";
-}
-
-
-/* Age */
-
-function calculateAge(){
-
-    let value =
-    document.getElementById("birthDate").value;
-
-    if(!value){
-
-        document.getElementById("ageResult").innerText =
-        "कृपया जन्म तारीख चुनें।";
-
-        return;
-    }
-
-    let birth = new Date(value);
-    let today = new Date();
-
-    if(birth > today){
-
-        document.getElementById("ageResult").innerText =
-        "जन्म तारीख भविष्य की नहीं हो सकती।";
-
-        return;
-    }
-
-    let years =
-    today.getFullYear() - birth.getFullYear();
-
-    let months =
-    today.getMonth() - birth.getMonth();
-
-    let days =
-    today.getDate() - birth.getDate();
-
-    if(days < 0){
-
-        months--;
-
-        let previousMonth =
-        new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-        );
-
-        days += previousMonth.getDate();
-    }
-
-    if(months < 0){
-
-        years--;
-        months += 12;
-    }
-
-    document.getElementById("ageResult").innerHTML =
-    "उम्र: " +
-    years + " वर्ष, " +
-    months + " महीने, " +
-    days + " दिन";
-}
-
-
-/* EMI */
-
-function calculateEMI(){
-
-    let P =
-    Number(document.getElementById("loan").value);
-
-    let annualRate =
-    Number(document.getElementById("rate").value);
-
-    let N =
-    Number(document.getElementById("months").value);
-
-    if(P <= 0 || annualRate < 0 || N <= 0){
-
-        document.getElementById("emiResult").innerText =
-        "कृपया सही जानकारी डालें।";
-
-        return;
-    }
-
-    let r =
-    annualRate / 12 / 100;
-
-    let emi;
-
-    if(r === 0){
-
-        emi = P / N;
-
-    }else{
-
-        emi =
-        P * r * Math.pow(1+r,N) /
-        (Math.pow(1+r,N)-1);
-
-    }
-
-    let total =
-    emi * N;
-
-    let interest =
-    total - P;
-
-    document.getElementById("emiResult").innerHTML =
-    "Monthly EMI: ₹" + emi.toFixed(2) +
-    "<br>Total Payment: ₹" + total.toFixed(2) +
-    "<br>Total Interest: ₹" + interest.toFixed(2);
-}
-
-
-/* GST */
-
-function calculateGST(){
-
-    let amount =
-    Number(document.getElementById("gstAmount").value);
-
-    let rate =
-    Number(document.getElementById("gstRate").value);
-
-    if(amount < 0){
-
-        document.getElementById("gstResult").innerText =
-        "कृपया सही amount डालें।";
-
-        return;
-    }
-
-    let gst =
-    amount * rate / 100;
-
-    let total =
-    amount + gst;
-
-    document.getElementById("gstResult").innerHTML =
-    "GST Amount: ₹" + gst.toFixed(2) +
-    "<br>Total Amount: ₹" + total.toFixed(2);
-}
-
-
-/* Kilometer */
-
-function convertKm(){
-
-    let km =
-    Number(document.getElementById("km").value);
-
-    if(km < 0){
-
-        document.getElementById("unitResult").innerText =
-        "कृपया सही संख्या डालें।";
-
-        return;
-    }
-
-    document.getElementById("unitResult").innerHTML =
-    km + " KM = " +
-    (km * 1000) + " Meter" +
-    "<br>" +
-    km + " KM = " +
-    (km * 0.621371).toFixed(4) + " Miles";
-}
-
-
-/* Date Difference */
-
-function calculateDateDifference(){
-
-    let first =
-    document.getElementById("date1").value;
-
-    let second =
-    document.getElementById("date2").value;
-
-    if(!first || !second){
-
-        document.getElementById("dateResult").innerText =
-        "दोनों तारीखें चुनें।";
-
-        return;
-    }
-
-    let d1 = new Date(first);
-    let d2 = new Date(second);
-
-    let difference =
-    Math.abs(d2 - d1);
-
-    let days =
-    Math.floor(
-        difference / (1000*60*60*24)
-    );
-
-    document.getElementById("dateResult").innerText =
-    "दोनों तारीखों के बीच " +
-    days +
-    " दिन का अंतर है।";
-}
-
-
-/* Discount */
-
-function calculateDiscount(){
-
-    let price =
-    Number(document.getElementById("price").value);
-
-    let rate =
-    Number(document.getElementById("discountRate").value);
-
-    if(price < 0 || rate < 0 || rate > 100){
-
-        document.getElementById("discountResult").innerText =
-        "कृपया सही जानकारी डालें।";
-
-        return;
-    }
-
-    let discount =
-    price * rate / 100;
-
-    let finalPrice =
-    price - discount;
-
-    document.getElementById("discountResult").innerHTML =
-    "Discount: ₹" + discount.toFixed(2) +
-    "<br>Final Price: ₹" + finalPrice.toFixed(2);
-}
-
-</script>
+    </footer>
 
 </body>
-  </html>
+</html>
